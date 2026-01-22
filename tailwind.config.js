@@ -10,8 +10,8 @@ export default {
       fontFamily: {
         handwriting: ['"Great Vibes"', 'cursive'],
         playfair: ['"Playfair", serif'],
-        openSans: ['"Open Sans", sans-serif']
-
+        openSans: ['"Open Sans", sans-serif'],
+        Merriweather: ['"Merriweather", sans-serif']
       },
       backgroundImage: {
         'custom-gradient': 'linear-gradient(94.06deg, #CE1919 -1.21%, #FF5252 58.66%, #FFA3A3 116.84%)',

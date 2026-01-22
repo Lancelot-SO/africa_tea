@@ -30,32 +30,23 @@ const Navbar = () => {
 
     return (
         <>
-            {/* NAVBAR */}
             <nav className="absolute top-0 left-0 w-full z-50">
-
                 {/* Announcement Bar */}
-                <header className="flex items-center justify-center gap-2 w-full h-[43px] md:text-sm text-[10px] bg-white text-center border-b border-gray-300">
-                    <span>
-                        Refill your tea box easily! And you can refill with only your preferred variants
-                    </span>
+                <header className="flex items-center justify-center gap-2 w-full h-[43px] md:text-sm text-[10px] bg-white border-b">
+                    <span>Refill your tea box easily!</span>
                     <NavLink to="/shop" className="text-[#B18A45] hover:underline">
                         Shop Now
                     </NavLink>
                 </header>
 
                 {/* Main Navbar */}
-                <main className="px-4 lg:px-[150px] 4xl:px-[300px] flex items-center justify-between h-[76px] bg-transparent text-white">
-
+                <main className="px-4 lg:px-[150px] flex items-center justify-between h-[76px] bg-transparent text-white">
                     {/* Logo */}
                     <NavLink to="/">
-                        <img
-                            src={logo}
-                            alt="Africa Tea Logo"
-                            className="w-[108px] h-[76px]"
-                        />
+                        <img src={logo} alt="Africa Tea Logo" className="w-[108px] h-[76px]" />
                     </NavLink>
 
-                    {/* Desktop Navigation */}
+                    {/* Desktop Links */}
                     <ul className="hidden lg:flex items-center">
                         {links.map(([label, path]) => (
                             <li key={path} className="mx-4">
@@ -66,25 +57,18 @@ const Navbar = () => {
                         ))}
                     </ul>
 
-                    {/* Desktop Right Icons */}
+                    {/* Desktop Icons */}
                     <aside className="hidden lg:flex items-center gap-3">
-                        <GoPerson size={22} className="hover:text-[#B18A45] cursor-pointer" />
-                        <NavLink to="/login" className="text-sm hover:text-[#B18A45]">
-                            Login
-                        </NavLink>
+                        <GoPerson size={22} />
+                        <NavLink to="/login">Login</NavLink>
                         <span>/</span>
-                        <NavLink to="/register" className="text-sm hover:text-[#B18A45]">
-                            Register
-                        </NavLink>
-                        <GoSearch size={22} className="ml-3 hover:text-[#B18A45] cursor-pointer" />
-                        <CiHeart size={22} className="ml-3 hover:text-[#B18A45] cursor-pointer" />
+                        <NavLink to="/register">Register</NavLink>
+                        <GoSearch size={22} />
+                        <CiHeart size={22} />
                     </aside>
 
-                    {/* Mobile Menu Button */}
-                    <button
-                        onClick={() => setIsOpen(true)}
-                        className="lg:hidden text-white"
-                    >
+                    {/* Mobile Button */}
+                    <button onClick={() => setIsOpen(true)} className="lg:hidden">
                         <Menu size={28} />
                     </button>
                 </main>
@@ -97,42 +81,30 @@ const Navbar = () => {
                     }`}
             />
 
-            {/* Mobile Slide Menu */}
+            {/* Mobile Drawer */}
             <aside
                 className={`fixed top-0 right-0 h-full w-[60%] bg-white z-50
-                transform transition-transform duration-300 ease-in-out
+                transform transition-transform duration-300
                 ${isOpen ? "translate-x-0" : "translate-x-full"}`}
             >
                 {/* Header */}
-                <div className="flex items-center justify-between p-6 border-b">
+                <div className="flex justify-between items-center p-6 border-b">
                     <span className="font-semibold text-lg">Menu</span>
                     <button onClick={() => setIsOpen(false)}>
                         <X size={24} />
                     </button>
                 </div>
 
-                {/* Mobile User Actions */}
+                {/* Mobile Auth */}
                 <div className="px-6 py-4 border-b flex items-center gap-4">
                     <GoPerson size={22} />
-                    <NavLink
-                        to="/login"
-                        onClick={() => setIsOpen(false)}
-                        className="text-sm hover:text-[#B18A45]"
-                    >
-                        Login
-                    </NavLink>
-                    <span className="text-gray-400">/</span>
-                    <NavLink
-                        to="/register"
-                        onClick={() => setIsOpen(false)}
-                        className="text-sm hover:text-[#B18A45]"
-                    >
-                        Register
-                    </NavLink>
+                    <NavLink to="/login" onClick={() => setIsOpen(false)}>Login</NavLink>
+                    <span>/</span>
+                    <NavLink to="/register" onClick={() => setIsOpen(false)}>Register</NavLink>
                 </div>
 
-                {/* Mobile Navigation Links */}
-                <ul className="flex flex-col p-6 gap-6 text-gray-800">
+                {/* Mobile Links */}
+                <ul className="flex flex-col p-6 gap-6">
                     {links.map(([label, path]) => (
                         <li key={path}>
                             <NavLink
@@ -146,16 +118,10 @@ const Navbar = () => {
                     ))}
                 </ul>
 
-                {/* Mobile Bottom Actions */}
+                {/* Mobile Bottom Icons */}
                 <div className="mt-auto px-6 py-6 border-t flex gap-6">
-                    <GoSearch
-                        size={22}
-                        className="cursor-pointer hover:text-[#B18A45]"
-                    />
-                    <CiHeart
-                        size={22}
-                        className="cursor-pointer hover:text-[#B18A45]"
-                    />
+                    <GoSearch size={22} />
+                    <CiHeart size={22} />
                 </div>
             </aside>
         </>
